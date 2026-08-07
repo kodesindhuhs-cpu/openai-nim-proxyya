@@ -28,8 +28,8 @@ const ENABLE_THINKING_MODE = false; // Set to true to enable chat_template_kwarg
 const MODEL_MAPPING = {
   'gpt-3.5-turbo': 'nmoonshotai/kimi-k2.6',
   'gpt-4': 'qwen/qwen3-coder-480b-a35b-instruct',
-  'gpt-4-turbo': 'deepseek-ai/deepseek-v4-pro',
-  'gpt-4o': 'deepseek-ai/deepseek-v4-pro',
+  'gpt-4-turbo': 'z-ai/glm-5.2',
+  'gpt-4o': 'meta/llama-3.3-70b-instruct',
   'claude-3-opus': 'z-ai/glm-4.7',
   'claude-3-sonnet': 'deepseek-ai/deepseek-v4-flash',
   'gemini-pro': 'qwen/qwen3-next-80b-a3b-thinking' 
@@ -60,12 +60,12 @@ app.get('/v1/models', (req, res) => {
   });
 });
 
-// Chat completions endpoint (main proxy)
-app.post('/v1/chat/completions', async (req, res) => {
+// Chat completions endpoint (handles root rewrites + standard paths)
+app.post(['/v1/chat/completions', '/chat/completions', '/'], async (req, res) => {
   try {
     // ⏱️ FLATTEN PEAKS: Force a 4000ms delay to enforce a safe RPM threshold
     console.log(`[Rate-Limiter] Enforcing a 4000ms pause before hitting NVIDIA NIM API...`);
-    await sleep(4350);
+    await sleep(4750);
 
     const { model, messages, temperature, max_tokens, stream } = req.body;
     
