@@ -65,7 +65,7 @@ app.post(['/v1/chat/completions', '/chat/completions', '/'], async (req, res) =>
   try {
     // ⏱️ FLATTEN PEAKS: Force a 4000ms delay to enforce a safe RPM threshold
     console.log(`[Rate-Limiter] Enforcing a 4000ms pause before hitting NVIDIA NIM API...`);
-    await sleep(4750);
+    await sleep(5000);
 
     const { model, messages, temperature, max_tokens, stream } = req.body;
     
