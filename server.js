@@ -27,9 +27,9 @@ const ENABLE_THINKING_MODE = false; // Set to true to enable chat_template_kwarg
 // Model mapping (adjust based on available NIM models)
 const MODEL_MAPPING = {
   'gpt-3.5-turbo': 'z-ai/glm-5.3-flash',
-  'gpt-4': 'deepseek-v4.1-flash',
+  'gpt-4': 'deepseek-ai/deepseek-v4.1-flash',
   'gpt-4-turbo': 'z-ai/glm-5.3',
-  'gpt-4o': 'deepseek-v4.1-flash',
+  'gpt-4o': 'deepseek-ai/deepseek-v4.1-flash',
   'claude-3-opus': 'z-ai/glm-5.3',
   'claude-3-sonnet': 'z-ai/glm-5.3',
   'gemini-pro': 'qwen/qwen3-next-80b-a3b-thinking' 
